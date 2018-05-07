@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: cattle-system
+  name: cattle-ingress-http
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"   # Max time in seconds for ws to remain shell window open
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"   # Max time in seconds for ws to remain shell window open
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"      # Enable ssl-passthrough to backend.
+spec:
+  rules:
+  - host: reason.jgreat.me  # FQDN to access cattle server
+    http:
+      paths:
+      - path: /one-time
+          serviceName: cattle-service
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: cattle-service
+          servicePort: 443
