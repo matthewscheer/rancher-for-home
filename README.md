@@ -1,7 +1,7 @@
 # rancher-for-home
 Deploying Rancher 2.0 on Docker-for-desktop k8s style
 
-Don't have access to Cloud infrastructure, but still want to try Rancher 2.0?  No problem, you can install it on your desktop.
+Don't have access to Cloud infrastructure, but still want to try Rancher 2.0? Want to use Rancher for local development just like you do in production? No problem, you can install it on your desktop.
 
 The examples in this guide were done on Windows, but if you're using a Mac the tool usage should be the same. Some of your paths to binaries and directories may need to be adjusted.
 
@@ -39,7 +39,7 @@ In the `Kubernetes` section, check the box to enable the Kubernetes API. Docker-
 
 ### Testing Your Cluster
 
-Open terminal and test it out. Run a `kubectl get nodes` command. kubectl should return a node named `docker-for-desktop`.
+Open terminal and test it out. Run a `kubectl get nodes` command. `kubectl` should return a node named `docker-for-desktop`.
 
 ```
 > kubectl get nodes
@@ -48,7 +48,7 @@ NAME                 STATUS    ROLES     AGE       VERSION
 docker-for-desktop   Ready     master    6d        v1.9.6
 ```
 
-## Preping Kubernetes
+## Preparing Kubernetes
 
 `docker-for-desktop` doesn't come with an `ingress controller` installed.  To add one we could apply some manifests with `kubectl`, but rather than reinventing the wheel, I want leverage kubernetes community. `helm` is the catalog tool of choice for kubernetes.
 
@@ -68,7 +68,7 @@ helm init --service-account tiller
 
 ### Add an Ingress Controller
 
-We're going to install the `nginx-ingress` ingress controller on our local cluster. The default options for the "rancher" `helm` catalog is to use SSL Passthrough.  This will need to be configured when you launch the catalog.
+We're going to install the `nginx-ingress` ingress controller on our local cluster. The default options for the "rancher" `helm` catalog is to use SSL Passthrough.  This will need to be configured with the `--controller.extraArgs.enable-ssl-passthrough=""` option when you launch the catalog.
 
 ```
 helm install stable/nginx-ingress --name ingress-nginx --namespace ingress-nginx --set controller.extraArgs.enable-ssl-passthrough=""
@@ -89,12 +89,15 @@ Add this entry to the appropriate file for your system.
 
 ### Installing Rancher
 
-We're going to use `helm` from the repo we cloned to install Rancher with the built in self-signed SSL certificate.
+We're going to use `helm` install Rancher with the built in self-signed SSL certificate. 
 
 ```
-cd charts/rancher
+git clone https://github.com/jgreat/helm-rancher-server.git
+cd helm-rancher-server/charts/rancher
 helm install ./ --name rancher --namespace rancher-system
 ```
+
+Check out 
 
 ### Connecting to Rancher
 
