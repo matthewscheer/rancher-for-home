@@ -89,15 +89,15 @@ Add this entry to the appropriate file for your system.
 
 ### Installing Rancher
 
-We're going to use `helm` install Rancher with the built in self-signed SSL certificate. 
+We're going to use `helm` install Rancher with the built in self-signed SSL certificate. Check out the `git` repo, `cd` into the `rancher` catalog and run `helm`.
 
 ```
 git clone https://github.com/jgreat/helm-rancher-server.git
+
 cd helm-rancher-server/charts/rancher
+
 helm install ./ --name rancher --namespace rancher-system
 ```
-
-Check out 
 
 ### Connecting to Rancher
 
