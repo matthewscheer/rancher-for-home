@@ -53,7 +53,7 @@ docker-for-desktop   Ready     master    6d        v1.9.6
 
 Docker-for-Desktop doesn't come with any extra tools installed.  We could apply some static YAML manifest files with `kubectl`, but rather than reinventing the wheel, we want leverage existing work from the Kubernetes community.  `helm` is the package management tool of choice for Kubernetes.
 
-`helm` `charts` provide templating syntax for Kubernetes YAML manifest documents. With `helm` you can create configurable deployments instead of just using static files. For more information about creating your own catalog of deployments, check out the docs at https://helm.sh/
+`helm` `charts` provide templating syntax for Kubernetes YAML manifest documents. With `helm` we can create configurable deployments instead of just using static files. For more information about creating your own catalog of deployments, check out the docs at https://helm.sh/
 
 ### Initialize Helm on your Cluster
 
