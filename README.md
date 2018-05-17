@@ -36,6 +36,8 @@ In the `Kubernetes` section, check the box to enable the Kubernetes API. Docker-
 
 ![kubernetes](docs/images/kubernetes.png)
 
+Don't see a `Kubernetes` section? Check the `General` section and make sure you are running the Edge version.
+
 #### Testing Your Cluster
 
 Open terminal and test it out. Run `kubectl get nodes`. `kubectl` should return a node named `docker-for-desktop`.
