@@ -27,7 +27,7 @@ helm install stable/cert-manager --name cert-manager --namespace kube-system
 We need to provide some additional options to the `rancher` catalog to configure LetsEncrypt. Check out the catalog README.md for more details on the options.
 
 ```
-helm install ./ --name rancher --namespagit@github.com:jgreat/helm-rancher-server.gitce rancher-system \
+helm install ./ --name rancher --namespace rancher-system \
 --set fqdn=rancher.jgreat.me \
 --set ingress.tls=letsEncrypt \
 --set letsEncrypt.enabled=true \
