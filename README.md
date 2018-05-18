@@ -130,5 +130,5 @@ Ignore the SSL warning and you should be greeted by the colorful Rancher login a
 
 ![rancher](docs/images/rancher_login.png)
 
-Congratulations you have your very own local instance of Rancher 2.0. You can add your application `charts` and deploy your apps just like production. - Happy Containering!
+Congratulations you have your very own local instance of Rancher 2.0. You can add your application `charts` and deploy your apps just like production. Happy Containering!
 
